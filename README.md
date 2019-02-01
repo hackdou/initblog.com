@@ -7,6 +7,6 @@ Here are some things I used/did:
 - Awesome [template](https://github.com/joshgerdes/jekyll-uno). Fork from there, not from here.
 - [favicon generator](https://www.favicon-generator.org/).
 - Took all the external JS and hosted it internally
-- Used [FontAwesome](https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css) in place of the foundation icons, due to needing a gitlab icon.
+- Used [FontAwesome](https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css) in place of the foundation icons.
 
 Here it is: [https://initblog.com](https://initblog.com)

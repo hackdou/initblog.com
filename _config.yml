@@ -42,3 +42,4 @@ exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
 
 # Added to stick to local timezone
 timezone: Australia/Melbourne
+future: false

@@ -44,7 +44,7 @@ Take the line that starts with `$bitcoin` and place it in a file called `hash.tx
 
 ![Hash](/images/post-btc2/hash.png)
 
-**Note**: If you're reading this because you've forgotten your own password and are unable to crack it yourself, you can share this hash with a reuptable wallet recovery service. Cracking this hash will not allow them to access your Bitcoins unless they also have access to your `wallet.dat` file. However, it you've re-used this password elsewhere, it may allow them to log in to those services and otherwise fuck your shit up.
+**Note**: If you're reading this because you've forgotten your own password and are unable to crack it yourself, you can share this hash with a reuptable wallet recovery service. Cracking this hash will not allow them to access your Bitcoins unless they also have access to your `wallet.dat` file. However, it you've re-used this password elsewhere, it may allow them to log in to those services and otherwise make your life hell.
 
 
 ## Get Cracking - Standard Dictionary Attack
@@ -99,4 +99,4 @@ Follow the same process as before, but alter the command to use one of the rule 
 ## Happy Hacking!
 Have fun with this! If you have any questions or need any help, feel free to reach out.
 
-And seriously - don't fucking steal any bitcoins that don't belong to you. We all want this stuff to be mainstream one day, and that isn't going to happen if people don't feel safe using them.
+And seriously - don't steal any bitcoins that don't belong to you. We all want this stuff to be mainstream one day, and that isn't going to happen if people don't feel safe using them.

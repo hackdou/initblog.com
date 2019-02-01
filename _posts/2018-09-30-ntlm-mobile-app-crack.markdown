@@ -42,7 +42,7 @@ Intercepting NTLM challenge/response is a widely known attack method, but you us
 
 ## Set up a trusted certificate
 
-Your app probably uses TLS, so we need a trusted certificate to use with Responder. You can use my [certificate cloning tool here](https://gitlab.com/initstring/pentest/blob/master/web-tools/clone-ssl.py) to make a certificate that is sort-of like your target domain. This probably won't bypass certificate pinning (unless it is done really badly), so you may have some more steps on your own to get past that. Assuming your 401 request is going to `https://google.com/mobileapp/veryvuln.svc` you will run the tool like this:
+Your app probably uses TLS, so we need a trusted certificate to use with Responder. You can use my [certificate cloning tool here](https://github.com/initstring/pentest/blob/master/web-tools/clone-ssl.py) to make a certificate that is sort-of like your target domain. This probably won't bypass certificate pinning (unless it is done really badly), so you may have some more steps on your own to get past that. Assuming your 401 request is going to `https://google.com/mobileapp/veryvuln.svc` you will run the tool like this:
 
 ```
 $ ./clone-ssl.py google.com
@@ -141,7 +141,7 @@ Pop that bad boy in a text file called `responder-hash` and take a run at it wit
 hashcat -a 0 -m 5600 ./responder-hash dictionary-file -r rule-file
 ```
 
-Make sure to check out [my passphrase cracking project](https://gitlab.com/initstring/passphrase-wordlist) as well.
+Make sure to check out [my passphrase cracking project](https://github.com/initstring/passphrase-wordlist) as well.
 
 ## Configure Burp with your new creds
 

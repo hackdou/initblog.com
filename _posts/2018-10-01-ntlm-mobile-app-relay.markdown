@@ -18,7 +18,7 @@ If you're reading this, I'm assuming you already read through part 1 and could n
 
 Having trouble figuring out the target domain and the target URL for the API? You should be able to see the first communication attempt from the mobile device inside Burp's "HTTP History" tab if you are proxied.
 
-If you can't use Burp for some reason, try [my Python tool httpspy](https://gitlab.com/initstring/pentest/blob/master/web-tools/httpspy.py) that listens for HTTP/HTTPS traffic and prints all details to the console. You would run it like this, assuming you followed Part 1 and used my certificate cloning tool as well:
+If you can't use Burp for some reason, try [my Python tool httpspy](https://github.com/initstring/pentest/blob/master/web-tools/httpspy.py) that listens for HTTP/HTTPS traffic and prints all details to the console. You would run it like this, assuming you followed Part 1 and used my certificate cloning tool as well:
 
 ```
 sudo ./httpspy.py --cert ./clonessl-output/client.pem wlan0

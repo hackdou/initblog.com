@@ -3,7 +3,7 @@ title:  "Cracking Passwords Based on Song Lyrics"
 date:   2017-04-26
 ---
 
-*Update (2019): I've since released a much more powerful tool for cracking passphrases. Check it out [on my Gitlab page here](https://gitlab.com/initstring/passphrase-wordlist). I'll keep this old blog up as the output from lyricpass can be fed through the cleanup.py script and then used with the hashcat rules in the new project. Enjoy!*
+*Update (2019): I've since released a much more powerful tool for cracking passphrases. Check it out [on my GitHub page here](https://github.com/initstring/passphrase-wordlist). I'll keep this old blog up as the output from lyricpass can be fed through the cleanup.py script and then used with the hashcat rules in the new project. Enjoy!*
 
 
 There’s been a lot of news in the media lately about using tools like encryption and password managers. Both of these can leverage a single password to unlock a ton of vital information. Because of this, people are looking to create longer, more complex “master keys”. This blog demonstrates a method of guessing some of those keys.

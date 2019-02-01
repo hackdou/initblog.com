@@ -54,7 +54,7 @@ Here are a few things you can do to limit your exposure:
 Here is the raw macro. You'll need to update 'EMAIL_TO' and 'EMAIL_SUBJ' with your own values.
 
 
-I'm sure this macro can be improved, so please open an issue on the [GitLab repository](https://gitlab.com/initstring/pentest/blob/master/phishing/screenshot-macro) here if you have an idea.
+I'm sure this macro can be improved, so please open an issue on the [GitHub repository](https://github.com/initstring/pentest/blob/master/phishing/screenshot-macro) here if you have an idea.
 
 ```
 'This document is part of an authorised, simulated phishing campaign.

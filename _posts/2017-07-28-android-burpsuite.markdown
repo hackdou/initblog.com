@@ -1,6 +1,7 @@
 ---
 title:  "How to Spy on Your Android Phone"
 date:   2017-07-28
+published:  false
 ---
 Ever wonder what your phone is really up to? This tutorial will show you how to closely inspect the information flowing in and out of your mobile applications. You might be surprised to see where your information is going.
 

@@ -2,6 +2,8 @@
 title:  "Phishing for Screenshots (Excel Macro)"
 date:   2018-12-02 12:00:00
 published: true
+layout: post
+excerpt: "When performing social engineering engagements, it's tricky to find a payload that demonstrates the gravity of the attack without going full-on red team and shelling boxes. I've developed something for a recent test that I think finds a nice balance - an Excel macro that will take a screenshot of the user's desktop and leverage their local Outlook profile to email it back to a predefined address."
 ---
 
 When performing social engineering engagements, it's tricky to find a payload that demonstrates the gravity of the attack without going full-on red team and shelling boxes. I've developed something for a recent test that I think finds a nice balance - an Excel macro that will take a screenshot of the user's desktop and leverage their local Outlook profile to email it back to a predefined address.

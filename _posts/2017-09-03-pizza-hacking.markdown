@@ -1,6 +1,8 @@
 ---
 title:  "Hacking a Pizza Order with Burp Suite"
 date:   2017-09-03
+layout: post
+excerpt: "A real-life example of bypassing UI restrictions in a web application."
 ---
 
 Web hacking skills can be used to solve critical challenges in business and life – like customizing a pizza order. Read on to see how I overcame a restricted UI to triumphantly top my pizza just the way I wanted it.

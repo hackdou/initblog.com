@@ -2,6 +2,8 @@
 title:  "Hijacking NTLM-powered Mobile Apps (Part 2 - Relaying with Metasploit)"
 date:   2018-10-01 12:00:00
 published: true
+layout: post
+excerpt: "Working on hacking a mobile app that uses NTLM to authenticate to a back-end web service? Make sure to check out Part 1 first. In this blog, we'll assume we could not crack the password and instead need to relay the Challenge/Response to interact with the API."
 ---
 
 Working on hacking a mobile app that uses NTLM to authenticate to a back-end web service? Make sure to check out [Part 1 - Cracking with Responder](/2018/ntlm-mobile-app-crack/) first. In this blog, we'll assume we could not crack the password and instead need to relay the Challenge/Response to interact with the API.
@@ -43,7 +45,7 @@ The commands below assume the following:
 ```
 sudo msfconsole # we need root to bind to ports 80/443
 
- 
+
 use auxiliary/server/http_ntlmrelay
 set RHOST 8.8.8.8
 set RPORT 443

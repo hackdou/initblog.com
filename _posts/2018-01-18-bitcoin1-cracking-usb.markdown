@@ -1,6 +1,8 @@
 ---
 title:  "How to Steal Bitcoins: Part 1 (Cracking Encrypted USB Drives)"
 date:   2018-01-26 12:00:00
+layout: post
+excerpt: "This is part one in a series of blogs on cryptocurrencies and security. The goal is to extract data from an encrypted USB stick, like a Tails OSp ersistent volume."
 ---
 
 This is part one in a series of blogs on cryptocurrencies and security. The goal is to extract data from an encrypted USB stick, like a [Tails OS](https://tails.boum.org/index.en.html) persistent volume. Theses are commonly used for cold storage of Bitcoin, Ethereum, and other alt-coins.
@@ -39,8 +41,8 @@ Open up a terminal and use the [`lsblk`](https://www.systutorials.com/docs/linux
 
 ```
 $ lsblk
-sda                        8:0    1   3.7G  0 disk  
-├─sda1                     8:1    1   2.5G  0 part  
+sda                        8:0    1   3.7G  0 disk
+├─sda1                     8:1    1   2.5G  0 part
 └─sda2                     8:2    1   1.3G  0 part
 ```
 

@@ -1,6 +1,8 @@
 ---
-title:  "Cracking Passwords Based on Song Lyrics"
+title:  "Scraping Song Lyrics for Password Attacks"
 date:   2017-04-26
+layout: post
+excerpt: "Generate targeted password wordlists based on song lyrics for specific artists."
 ---
 
 *Update (2019): I've since released a much more powerful tool for cracking passphrases. Check it out [on my GitHub page here](https://github.com/initstring/passphrase-wordlist). I'll keep this old blog up as the output from lyricpass can be fed through the cleanup.py script and then used with the hashcat rules in the new project. Enjoy!*
@@ -41,7 +43,7 @@ The script currently allows a few inputs to tailor the password file, which is p
 
 ![screenshot](/images/post-lyricpass/1.png)
 
-Are you using any lyric-based passwords today? Try out [this script](http://github.com/initstring/lyricpass) and see if it can crack yours. 
+Are you using any lyric-based passwords today? Try out [this script](http://github.com/initstring/lyricpass) and see if it can crack yours.
 
 ## Update
 This script is now linked to on [WeakPass](https://weakpass.com/links)! :)

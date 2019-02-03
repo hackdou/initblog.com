@@ -2,6 +2,8 @@
 title:  "Hijacking NTLM-powered Mobile Apps (Part 1 - Cracking with Responder)"
 date:   2018-09-30 12:00:00
 published: true
+layout: post
+excerpt: "Doing a black-box test of a mobile app that uses NTLM authentication to speak to the web service? You may find your typical tools won't work. Read on for information on intercepting, inspecting, and modifying the API calls. You might even get lucky and crack a clear-test master password."
 ---
 
 Doing a black-box test of a mobile app that uses NTLM authentication to speak to the web service? You may find your typical tools won't work. Read on for information on intercepting, inspecting, and modifying the API calls. You might even get lucky and crack a clear-test master password.
@@ -125,13 +127,13 @@ cp clonessl-output/client.key /opt/Responder/certs/responder.key
 
 # Run Responder on the same interface you are using to host the wireless hotspot
 # Don't forget the -v flag, it helps troubleshoot NTLM stuff
-sudo /opt/Responder/Responder.py -I wlan0 -v 
+sudo /opt/Responder/Responder.py -I wlan0 -v
 
 ```
 
 If you want to do another sanity check here, you can open up Safari on the mobile device and browse to https://targetdomain. The DNS should resolve to the machine running Responder, and you should get a logon box popping up. Just as important, you should NOT be getting any certificate errors if you set up that stuff properly. If this looks good, time to move to the app.
 
-Now, just open the app on your mobile device and do something that should trigger communication with the API. If everything is working, you will be rewarded with the lovely sight of the NTLM hash in the console. 
+Now, just open the app on your mobile device and do something that should trigger communication with the API. If everything is working, you will be rewarded with the lovely sight of the NTLM hash in the console.
 
 ## Crack the hash
 

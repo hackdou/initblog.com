@@ -2,6 +2,8 @@
 title:  "How to Spy on Your Android Phone"
 date:   2017-07-28
 published:  false
+layout: post
+excerpt: "Beginners guide to intercepting HTTP traffic on Android."
 ---
 Ever wonder what your phone is really up to? This tutorial will show you how to closely inspect the information flowing in and out of your mobile applications. You might be surprised to see where your information is going.
 
@@ -69,13 +71,13 @@ OK, this section may be a bit phone-specific. If you can’t find any of these s
 
 ![8](/images/post-android/8.png)
 
- 
+
 
 You’re almost there! Actually, some apps may already be going through the proxy. Others may be freaking out a bit. This is because anything trying to communicate securely over the Internet is not going to trust your proxy server.
 
 We’ll fix that next
 
- 
+
 ## Prep the CA Certificate for Android
 
 This is a one-time thing. We need to use the laptop now, unless you have the ability to rename a downloaded file on your phone (I don’t – wtf!).
@@ -89,7 +91,7 @@ This is a one-time thing. We need to use the laptop now, unless you have the abi
 4. This part is important! You need to rename that cacert.der file that you just downloaded to cacert.cer. Really, it’s the file extension that is important.
 5. Now, you need to get that file to your Android phone somehow. I just use email, and then download the attachment from the email client on my phone. This one is up to you – you can do it!
 
- 
+
 ## Install the Certificate in Android
 
 OK, back to your phone now. Again, this may be slightly device-specific.
@@ -103,7 +105,7 @@ OK, back to your phone now. Again, this may be slightly device-specific.
 ![10](/images/post-android/10.png)
 
 6. Click OK. You should see a brief message that it was installed successfully.
- 
+
 ## Spy Away!
 
 You’re all set now. Go back to Burp Suite and select “HTTP History” under the same “Proxy” tab we looked at before.
@@ -115,11 +117,11 @@ Highlight any request and more details will show in the panes at the bottom of B
 ![11](/images/post-android/11.png)
 
 See anything fishy going on? I know I caught my apps sending device-specific data to Facebook. Funny, as I don’t even have a Facebook account, let alone the app installed.
- 
+
 ## Don’t Forget to Clean Up!
 
 You’ll want to set the proxy back to “None” on your phone once you’re done playing around. You may even want to delete the CA certificate you installed, as permanently trusting that may not be the best idea. Android will give you warnings when you reboot and it detects the certificate installed.
- 
+
 ## What Now?
 
 You’ll probably notice Burp’s history filling up pretty quickly. I may write a second blog on how to restrict it to one app at a time. Essentially, you can install an app like “NoRoot Firewall” on Android to limit one app at a time to access the Internet. Give that a go if you’re interested.

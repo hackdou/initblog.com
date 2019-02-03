@@ -2,6 +2,8 @@
 title:  "How to Steal Bitcoins: Part 2 (Cracking Bitcoin Core wallet.dat Files)"
 date:   2018-02-05 12:00:00
 published: true
+layout: post
+excerpt: "This is part two in a series of blogs on cryptocurrencies and security. The goal is to recover passwords from encrypted Bitcoin Core (or Satoshi Client) wallets."
 ---
 
 This is part two in a series of blogs on cryptocurrencies and security. The goal is to recover passwords from encrypted Bitcoin Core (or Satoshi Client) wallets.
@@ -15,7 +17,7 @@ You can also search for other `.dat` files, as these can be manual backups creat
 
 Let's assume you've already tried to import the file into a wallet application and are prompted to enter a password. If you haven't yet tried this - do it now. You might get lucky.
 
-![Locked!](/images/post-btc2/locked.png)   
+![Locked!](/images/post-btc2/locked.png)
 *Nah, that would have been too easy!*
 
 

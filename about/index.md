@@ -8,7 +8,7 @@ comments: false
 <center>initstring is a security researcher based in Melbourne, Austraia.</center>
 
 # Contact
-For anything related to a tool on GitHub, please open an issue there. Otherwise, you can try me emailing me at protonmail using my initstring handle.
+For anything related to a tool on GitHub, please open an issue there. Otherwise, email me at protonmail using my initstring handle.
 
 Here's a PGP public key for that address:
 

@@ -24,7 +24,7 @@ mathjax:            false
 sass:
   sass_dir:         _sass
   style:            compressed
-
+future:             false
 # Comments
 # disqus_shortname:   taylantatli
 

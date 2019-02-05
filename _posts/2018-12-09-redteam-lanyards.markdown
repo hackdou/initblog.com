@@ -3,7 +3,7 @@ title:  "Red-Teamers: Skip the Proxmark, Clone a Lanyard"
 date:   2018-12-09 12:00:00
 published: true
 layout: post
-excerpt: "I noticed a nice, cheap, low-tech alternative to badge cloning on a recent red-team engagement and thought I'd share. This post is going to be short and sweet."
+excerpt: "I noticed a nice, cheap, low-tech alternative to badge cloning on a recent physical security engagement and thought I'd share. This post is going to be short and sweet."
 ---
 
 I noticed a nice, cheap, low-tech alternative to badge cloning on a recent physical security engagement and thought I'd share. This post is going to be short and sweet.

@@ -6,7 +6,7 @@ layout: post
 excerpt: "I noticed a nice, cheap, low-tech alternative to badge cloning on a recent red-team engagement and thought I'd share. This post is going to be short and sweet."
 ---
 
-I noticed a nice, cheap, low-tech alternative to badge cloning on a recent red-team engagement and thought I'd share. This post is going to be short and sweet.
+I noticed a nice, cheap, low-tech alternative to badge cloning on a recent physical security engagement and thought I'd share. This post is going to be short and sweet.
 
 If you plan to enter an office building with restricted areas during business hours, do a bit of recon a couple weeks ahead of time. Besides writing down how people are dressed, try to spot a pattern in the lanyards they wear. Are they customised? If so, the staff is most likely going to trust that anyone else with a matching one is allowed to be there.
 

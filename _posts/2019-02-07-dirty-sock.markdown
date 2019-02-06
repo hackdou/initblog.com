@@ -358,3 +358,6 @@ Patch your system! The snapd team fixed this right away after my disclosure.
 
 Thanks for reading!!!
 
+
+
+*also posted at [Shenanigans Labs](https://shenaniganslabs.io/2019/02/07/Dirty-Sock.html){:target="_blank"}*

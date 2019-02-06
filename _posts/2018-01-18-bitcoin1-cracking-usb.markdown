@@ -2,12 +2,12 @@
 title:  "How to Steal Bitcoins: Part 1 (Cracking Encrypted USB Drives)"
 date:   2018-01-26 12:00:00
 layout: post
-excerpt: "This is part one in a series of blogs on cryptocurrencies and security. The goal is to extract data from an encrypted USB stick, like a Tails OSp ersistent volume."
+excerpt: "This is part one in a series of blogs on cryptocurrencies and security. The goal is to extract data from an encrypted USB stick, like a Tails OS persistent volume."
 ---
 
 This is part one in a series of blogs on cryptocurrencies and security. The goal is to extract data from an encrypted USB stick, like a [Tails OS](https://tails.boum.org/index.en.html) persistent volume. Theses are commonly used for cold storage of Bitcoin, Ethereum, and other alt-coins.
 
-*Please note: This is an information security blog. The intent is to help people have fun hacking shit, point out vulnerabilities that we encounter every day, and ultimately help people make better decisions about security. STEALING SOMEONE'S BITCOINS WOULD BE A DICKHEAD MOVE. DON'T DO THAT.*
+*Please note: This is an information security blog. The intent is to help people learn about hacking, point out vulnerabilities that we encounter every day, and ultimately help people make better decisions about security. STEALING SOMEONE'S BITCOINS WOULD BE A DICKHEAD MOVE. DON'T DO THAT.*
 
 ## The Target
 We're going after a [LUKS-encrypted GPT partition](https://tails.boum.org/contribute/design/persistence/), as created by the [Tails OS](https://tails.boum.org/) installer. Setting that up is outside the scope of this blog, but it's pretty easy. Full details are [available](https://tails.boum.org/install/index.en.html), but here is a quick summary:
@@ -93,7 +93,7 @@ Device /dev/sda1 is not a valid LUKS device.
 ```
 
 ## Next - Clone the Encrypted Volume
-USB drives can be volatile, with many of them being cheap pieces of shit that will lose your data at the worst time possible. Do **NOT** try to recover encrypted data directly from a USB drive.
+USB drives can be volatile, with many of them being cheap pieces of crap that will lose your data at the worst time possible. Do **NOT** try to recover encrypted data directly from a USB drive.
 
 We want to make a local copy of our target, `/dev/sda2` on our cracking machine. This is easy accomplished using [`dd`](https://www.systutorials.com/docs/linux/man/1-dd/). The following command will create a file called "crypt.img" in the local directory.
 

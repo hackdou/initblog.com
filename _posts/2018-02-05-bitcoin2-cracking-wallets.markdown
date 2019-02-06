@@ -8,7 +8,7 @@ excerpt: "This is part two in a series of blogs on cryptocurrencies and security
 
 This is part two in a series of blogs on cryptocurrencies and security. The goal is to recover passwords from encrypted Bitcoin Core (or Satoshi Client) wallets.
 
-*Please note: This is an information security blog. The intent is to help people have fun hacking shit, point out vulnerabilities that we encounter every day, and ultimately help people make better decisions about security. STEALING SOMEONE'S BITCOINS WOULD BE A DICKHEAD MOVE. DON'T DO THAT.*
+*Please note: This is an information security blog. The intent is to help people learn about hacking, point out vulnerabilities that we encounter every day, and ultimately help people make better decisions about security. STEALING SOMEONE'S BITCOINS WOULD BE A DICKHEAD MOVE. DON'T DO THAT.*
 
 ## The Target
 We're making progress! Following the instructions in [part one](/2018/bitcoin1-cracking-usb/), you've gained access to an encrypted USB drive. Looking around, you notice a some interesting files - perhaps in a hidden folder called `.bitcoin`. Inside that folder, look for a file called `wallet.dat` - that contains all of the information needed to access a bitcoin wallet and its associated funds.

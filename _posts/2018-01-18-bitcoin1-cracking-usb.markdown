@@ -1,11 +1,11 @@
 ---
-title:  "How to Steal Bitcoins: Part 1 (Cracking Encrypted USB Drives)"
+title:  "How to Lose Your Bitcoins: Part 1 (Cracking Encrypted USB Drives)"
 date:   2018-01-26 12:00:00
 layout: post
-excerpt: "This is part one in a series of blogs on cryptocurrencies and security. The goal is to extract data from an encrypted USB stick, like a Tails OS persistent volume."
+excerpt: "This is part one in a series of blogs on cryptocurrencies and security. The goal show how your private keys could be extracted from an encrypted USB stick, like a Tails OS persistent volume."
 ---
 
-This is part one in a series of blogs on cryptocurrencies and security. The goal is to extract data from an encrypted USB stick, like a [Tails OS](https://tails.boum.org/index.en.html) persistent volume. Theses are commonly used for cold storage of Bitcoin, Ethereum, and other alt-coins.
+This is part one in a series of blogs on cryptocurrencies and security. The goal is to show how your private keys could be extracted from an encrypted USB stick, like a [Tails OS](https://tails.boum.org/index.en.html) persistent volume. Theses are commonly used for cold storage of Bitcoin, Ethereum, and other alt-coins.
 
 *Please note: This is an information security blog. The intent is to help people learn about hacking, point out vulnerabilities that we encounter every day, and ultimately help people make better decisions about security. STEALING SOMEONE'S BITCOINS WOULD BE A DICKHEAD MOVE. DON'T DO THAT.*
 
@@ -158,5 +158,3 @@ $ /opt/hashcat/hashcat64.bin -a 0 -m 14600 ~/crypt.img ~/wordlist.txt -r /opt/ru
 
 ## Happy Hacking!
 Have fun with this! If you have any questions or need any help, feel free to reach out.
-
-And seriously - don't fucking steal any bitcoins that don't belong to you. We all want this stuff to be mainstream one day, and that isn't going to happen if people don't feel safe using them.

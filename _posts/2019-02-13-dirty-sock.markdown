@@ -1,6 +1,6 @@
 ---
 title:  "Privilege Escalation in Ubuntu Linux (dirty_sock exploit)"
-date:   2019-02-07
+date:   2019-02-13
 published: false
 layout: post
 comments: false
@@ -360,4 +360,4 @@ Thanks for reading!!!
 
 
 
-*also posted at [Shenanigans Labs](https://shenaniganslabs.io/2019/02/07/Dirty-Sock.html){:target="_blank"}*
+*also posted at [Shenanigans Labs](https://shenaniganslabs.io/2019/02/13/Dirty-Sock.html){:target="_blank"}*

@@ -11,7 +11,7 @@ locale:             en_US
 url:                https://initblog.com
 
 # Jekyll
-permalink:          /:title/
+permalink:          /:year/:title/
 markdown:           kramdown
 highlighter:        rouge
 kramdown:

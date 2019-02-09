@@ -2,7 +2,7 @@
 layout: page
 title: About the author
 tags: [about, Jekyll, theme, moon]
-permalink: /about
+permalink: /about/
 comments: false
 ---
     

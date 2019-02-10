@@ -2,6 +2,7 @@
 title:  "Scraping Song Lyrics for Password Attacks"
 date:   2017-04-26
 layout: post
+hidden: true
 excerpt: "Generate targeted password wordlists based on song lyrics for specific artists."
 ---
 

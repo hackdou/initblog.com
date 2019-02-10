@@ -25,6 +25,7 @@ sass:
   sass_dir:         _sass
   style:            compressed
 future:             false
+timezone:           Australia/Melbourne
 # Comments
 # disqus_shortname:   taylantatli
 

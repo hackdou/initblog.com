@@ -29,7 +29,7 @@ In an attempt to simplify packaging applications on Linux systems, various new c
 
 The Snap ecosystem includes an ["app store"](https://snapcraft.io/store){:target="_blank"} where developers can contribute and maintain ready-to-go packages.
 
-Management of locally installed snaps and communication with this online store are partially handled by a systemd service called ["snapd"](https://github.com/snapcore/snapd){:target="_blank"}. This service is installed automatically in Ubuntu and runs under the context of the "root" user. Snapd is evolving into a vital component of the Ubuntu OS, particularly in the leaner spins like "Snappy Ubuntu Core" for cloud and IoT.
+Management of locally installed Snaps and communication with this online store are partially handled by a systemd service called ["snapd"](https://github.com/snapcore/snapd){:target="_blank"}. This service is installed automatically in Ubuntu and runs under the context of the "root" user. Snapd is evolving into a vital component of the Ubuntu OS, particularly in the leaner spins like "Snappy Ubuntu Core" for cloud and IoT.
 
 
 # Vulnerability Overview

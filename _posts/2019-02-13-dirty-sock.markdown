@@ -13,7 +13,7 @@ In January 2019, I discovered a privilege escalation vulnerability in default in
 
 Two working exploits are provided in the [dirty_sock repository](https://github.com/initstring/dirty_sock/){:target="_blank"}:
 1. [dirty_sockv1](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv1.py){:target="_blank"}: Uses the 'create-user' API to create a local user based on details queried from the Ubuntu SSO.
-2. [dirty_sockv2](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv2.py){:target="_blank"}: Sideloads a snap that contains an install-hook that generates a new local user.
+2. [dirty_sockv2](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv2.py){:target="_blank"}: Sideloads a Snap that contains an install-hook that generates a new local user.
 
 Both are effective on default installations of Ubuntu. Testing was mostly completed on 18.10, but older verions are vulnerable as well.
 
@@ -262,7 +262,7 @@ This is fairly reliable and seems safe to execute. You can probably stop reading
 Still reading? Well, the requirement for an Internet connection and an SSH service bothered me, and I wanted to see if I could exploit in more restricted environments. This leads us to...
 
 ## Version Two
-[dirty_sockv2](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv2.py){:target="_blank"} instead uses the 'POST /v2/snaps' API to sideload a snap containing a bash script that will add a local user. This works on systems that do not have the SSH service running. It also works on newer Ubuntu versions with no Internet connection at all. HOWEVER, sideloading does require some core snap pieces to be there. If they are not there, this exploit may trigger an update of the snapd service. My testing shows that this will still work, but it will only work ONCE in this scenario.
+[dirty_sockv2](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv2.py){:target="_blank"} instead uses the 'POST /v2/snaps' API to sideload a Snap containing a bash script that will add a local user. This works on systems that do not have the SSH service running. It also works on newer Ubuntu versions with no Internet connection at all. HOWEVER, sideloading does require some core snap pieces to be there. If they are not there, this exploit may trigger an update of the snapd service. My testing shows that this will still work, but it will only work ONCE in this scenario.
 
 Snaps themselves run in sandboxes and require digital signatures matching public keys that machines already trust. However, it is possible to lower these restrictions by indicating that a snap is in development (called "devmode"). This will give the snap access to the host Operating System just as any other application would have.
 

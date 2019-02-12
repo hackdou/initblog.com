@@ -5,7 +5,7 @@ description:        'initstring is a security researcher based in Melbourne, Aus
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/jthm.jpg'
-background:         'assets/img/dark-city.jpg'
+background:         'assets/img/metropolis.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 url:                https://initblog.com

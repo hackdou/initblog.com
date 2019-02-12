@@ -1,7 +1,7 @@
 ---
 title:  "Privilege Escalation in Ubuntu Linux (dirty_sock exploit)"
 date:   2019-02-13
-published: false
+published: true
 layout: post
 comments: false
 excerpt: "In January 2019, I discovered a privilege escalation vulnerability in default installations of Ubuntu Linux. This was due to a bug in the snapd API, a default service. Any local user could exploit this vulnerability to obtain immediate root access to the system."
@@ -11,7 +11,7 @@ excerpt: "In January 2019, I discovered a privilege escalation vulnerability in 
 # Introduction
 In January 2019, I discovered a privilege escalation vulnerability in default installations of Ubuntu Linux. This was due to a bug in the snapd API, a default service. Any local user could exploit this vulnerability to obtain immediate root access to the system.
 
-Two working exploits are provided:
+Two working exploits are provided in the [dirty_sock repository](https://github.com/initstring/dirty_sock/){:target="_blank"}:
 1. [dirty_sockv1](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv1.py){:target="_blank"}: Uses the 'create-user' API to create a local user based on details queried from the Ubuntu SSO.
 2. [dirty_sockv2](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv2.py){:target="_blank"}: Sideloads a snap that contains an install-hook that generates a new local user.
 

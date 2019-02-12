@@ -1,7 +1,7 @@
 ---
 title:  "Privilege Escalation in Ubuntu Linux (dirty_sock exploit)"
 date:   2019-02-13
-published: false
+published: true
 layout: post
 comments: false
 excerpt: "In January 2019, I discovered a privilege escalation vulnerability in default installations of Ubuntu Linux. This was due to a bug in the snapd API, a default service. Any local user could exploit this vulnerability to obtain immediate root access to the system."

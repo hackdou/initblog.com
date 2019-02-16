@@ -20,7 +20,7 @@ Both are effective on default installations of Ubuntu. Testing was mostly comple
 [The snapd team's response](https://bugs.launchpad.net/snapd/+bug/1813365){:target="_blank"} to disclosure was swift and appropriate. Working with them directly was incredibly pleasant, and I am very thankful for their hard work and kindness. Really, this type of interaction makes me feel very good about being an Ubuntu user myself.
 
 # TL;DR
-snapd serves up a REST API attached to a local UNIX_AF socket. Access control to restricted API functions is accomplished by querying the UID associated with any connections made to that socket. User-controlled socket peer data can be affected to overwrite a UID variable during string parsing in a for-loop. This allows any user to access any API function.
+snapd serves up a REST API attached to a local AF_UNIX socket. Access control to restricted API functions is accomplished by querying the UID associated with any connections made to that socket. User-controlled socket peer data can be affected to overwrite a UID variable during string parsing in a for-loop. This allows any user to access any API function.
 
 With access to the API, there are multiple methods to obtain root. The exploits linked above demonstrate two possibilities. 
 

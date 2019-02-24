@@ -17,7 +17,7 @@ Two working exploits are provided in the [dirty_sock repository](https://github.
 1. [dirty_sockv1](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv1.py){:target="_blank"}: Uses the 'create-user' API to create a local user based on details queried from the Ubuntu SSO.
 2. [dirty_sockv2](https://github.com/initstring/dirty_sock/blob/master/dirty_sockv2.py){:target="_blank"}: Sideloads a Snap that contains an install-hook that generates a new local user.
 
-Both are effective on default installations of Ubuntu. Testing was mostly completed on 18.10, but older verions are vulnerable as well.
+Both are effective on default installations of Ubuntu. Testing was mostly completed on 18.10, but older versions are vulnerable as well.
 
 [The snapd team's response](https://bugs.launchpad.net/snapd/+bug/1813365){:target="_blank"} to disclosure was swift and appropriate. Working with them directly was incredibly pleasant, and I am very thankful for their hard work and kindness. Really, this type of interaction makes me feel very good about being an Ubuntu user myself.
 

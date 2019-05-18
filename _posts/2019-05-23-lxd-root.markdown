@@ -1,7 +1,8 @@
 ---
 title:  "Privilege Escalation via LXD - Hijacking Unix Socket Credentials"
 date:   2019-05-23
-published: false
+published: true
+hidden: true
 layout: post
 comments: false
 excerpt: "Linux systems running LXD are vulnerable to privilege escalation via multiple attack paths, two of which are published in my "lxd_root" GitHub repository. This blog will go into the details of what I think is a very interesting path - abusing relayed UNIX socket credentials to speak directly to systemd's private interface."

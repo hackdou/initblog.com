@@ -1,6 +1,6 @@
 ---
 title:  "Privilege Escalation via LXD - Hijacking Unix Socket Credentials"
-date:   2019-05-23
+date:   2019-05-17
 published: true
 hidden: true
 layout: post

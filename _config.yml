@@ -70,6 +70,7 @@ gems:
 #  - jekyll-feed
 #  - jekyll-sitemap
   - jekyll-gist
+  - jekyll-paginate-v2
 
 jekyll-mentions:
     base_url: https://github.com

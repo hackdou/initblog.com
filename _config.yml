@@ -67,8 +67,8 @@ stackoverflow:      6679257/initstring
 # Gems
 gems:
   - jekyll-mentions
-  - jekyll-feed
-  - jekyll-sitemap
+#  - jekyll-feed
+#  - jekyll-sitemap
   - jekyll-gist
 
 jekyll-mentions:

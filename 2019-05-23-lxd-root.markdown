@@ -11,15 +11,13 @@ excerpt: "Linux systems running LXD are vulnerable to privilege escalation via m
 # Introduction
 Linux systems running LXD are vulnerable to privilege escalation via multiple attack paths, two of which are published in my ["lxd_root"](https://github.com/initstring/lxd_root){:target="_blank"} GitHub repository. This blog will go into the details of what I think is a very interesting path - abusing relayed UNIX socket credentials to speak directly to systemd's private interface. This method can be used with any other exploit primitives that can communicate over a socket with root credentials.
 
-Ubuntu 19.04 Server edition comes with the LXD snap installed by default. The only requirement for this exploit in a fresh install of Ubuntu is access to a user account that is a member of the `lxd` group. Anyone following the official documentation to create their first container would have done this already. 
+Ubuntu 19.04 Server edition comes with the LXD snap installed by default. The only requirement for this exploit in a fresh install of Ubuntu is access to a user account that is a member of the `lxd` group. Anyone following the official documentation to create their first container would have done this already.
 
 Privilege escalation via LXD in general has been a known issue since 2016, with a simple method described in theory in a [GitHub issue](https://github.com/lxc/lxd/issues/2003){:target="_blank"} and also in a practical implementation in a [security blog](https://reboare.github.io/lxd/lxd-escape.html){:target="_blank"} by [@reboare](https://twitter.com/reboare){:target="_blank"}.
 
 I believe I am the first to describe exploitation using stolen socket credentials, which also works with unprivileged containers.
 
-You can read my discussion with the maintainers in the bug tracker [here](https://bugs.launchpad.net/ubuntu/+source/lxd/+bug/1829071){:target="_blank"}.
-
-**UPDATE**: The LXD documentation has now been updated to include an explicit warning about adding users to the LXD group.
+**UPDATE**: The LXD documentation has now been updated to include an explicit warning about adding users to the `lxd` group. As always, [interacting](https://bugs.launchpad.net/ubuntu/+source/lxd/+bug/1829071){:target="_blank"} with the Canonical folks via their bug tracker was a really pleasant experience. I'd like to thank them for their time and for the thoughtful consideration they gave my ideas. I highly recommend other security researchers bring items directly to them in this manner.
 
 # TL;DR
 LXD is a management API for dealing with LXC containers on Linux systems. It will perform tasks for any members of the local `lxd` group. It does not make an effort to match the permissions of the calling user to the function it is asked to perform.
@@ -75,7 +73,7 @@ uid=1001(lowpriv) gid=1001(lowpriv) groups=1001(lowpriv),998(lxd)
 lowpriv@server:~$ groups
 lowpriv lxd
 lowpriv@server:~$ sudo -l
-[sudo] password for lowpriv: 
+[sudo] password for lowpriv:
 Sorry, user lowpriv may not run sudo on server.
 ```
 
@@ -85,18 +83,18 @@ Well, let's assume our friend the root user hadn't done this for us. We can't ru
 
 ```
 lowpriv@server:~$ lxd init
-Would you like to use LXD clustering? (yes/no) [default=no]: 
+Would you like to use LXD clustering? (yes/no) [default=no]:
 Do you want to configure a new storage pool? (yes/no) [default=yes]: yes
-Name of the new storage pool [default=default]: 
+Name of the new storage pool [default=default]:
 Name of the storage backend to use (btrfs, ceph, dir, lvm, zfs) [default=zfs]: dir
-Would you like to connect to a MAAS server? (yes/no) [default=no]: 
-Would you like to create a new local network bridge? (yes/no) [default=yes]: 
-What should the new bridge be called? [default=lxdbr0]: 
-What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
-What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: none 
-Would you like LXD to be available over the network? (yes/no) [default=no]: 
-Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
-Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
+Would you like to connect to a MAAS server? (yes/no) [default=no]:
+Would you like to create a new local network bridge? (yes/no) [default=yes]:
+What should the new bridge be called? [default=lxdbr0]:
+What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]:
+What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: none
+Would you like LXD to be available over the network? (yes/no) [default=no]:
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes]
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
 ```
 
 Note that I went with all of the defaults above, except for the "storage backend" which I set to use `dir` - a simple filesystem directory. Also I set IPv6 to `none` for more readable output.
@@ -247,8 +245,8 @@ We can use the standard Linux command `strace` to try to learn more. You can rea
 ```
 lowpriv@server:~$ man strace
 DESCRIPTION
-    In  the  simplest case strace runs the specified command until it exits. 
-    It intercepts and records the system calls which are called by a process 
+    In  the  simplest case strace runs the specified command until it exits.
+    It intercepts and records the system calls which are called by a process
     and the signals which are received by a process.
 ```
 
@@ -263,7 +261,7 @@ Open the strace-out file in a text editor. We want to learn how it is interactin
 OK, here are some strings from inside the strace output:
 
 ```
-sendmsg(3, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0AUTH EXTERNAL ", iov_len=15}, 
+sendmsg(3, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0AUTH EXTERNAL ", iov_len=15},
 {iov_base="30", iov_len=2}, {iov_base="\r\nNEGOTIATE_UNIX_FD\r\nBEGIN\r\n", iov_len=28}],
 msg_iovlen=3, msg_controllen=0, msg_flags=0}, MSG_DONTWAIT|MSG_NOSIGNAL) = 45
 

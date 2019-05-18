@@ -24,7 +24,7 @@ mathjax:            false
 sass:
   sass_dir:         _sass
   style:            compressed
-future:             false
+future:             true
 timezone:           Australia/Melbourne
 # Comments
 # disqus_shortname:   taylantatli

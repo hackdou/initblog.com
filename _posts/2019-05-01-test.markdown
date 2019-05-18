@@ -2,7 +2,7 @@
 title:  "test..."
 date:   2019-02-13
 published: true
-hidden: "true"
+hidden: true
 layout: post
 comments: false
 excerpt: ""

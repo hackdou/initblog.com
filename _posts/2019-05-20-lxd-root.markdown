@@ -356,7 +356,7 @@ AGREE_UNIX_FD
 
 Excellent! We are now speaking directly to the host's systemd service as if we are root.
 
-From here, we can continue to analyze `strace` output to build the `systemctl` commands we want to run. While `strace` shows the message data broken into fragments, we can actually piece them together into singe variables in a Python script and thrown them at the socket.
+From here, we can continue to analyze `strace` output to build the `systemctl` commands we want to run. While `strace` shows the message data broken into fragments, we can actually piece them together into singe variables in a Python script and throw them at the socket.
 
 You can review the source code of lxd_rootv2.py to fully understand how this is implemented.
 

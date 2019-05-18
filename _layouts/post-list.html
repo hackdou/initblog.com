@@ -22,7 +22,7 @@ layout: compress
                     </a>
                 </div>
                 <div class="post-list">
-                    {% for post in paginator.posts %} 
+                    {% for post in site.posts %} 
                         {% if post.project == null %}
                             {% if post.hidden != true %}
                         <ul>

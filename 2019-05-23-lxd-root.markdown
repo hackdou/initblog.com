@@ -303,7 +303,7 @@ Here it is in action.
 
 ![netcat-root](/images/post-lxd/exploit.png)
 
-## Final Thoughts
+# Final Thoughts
 The LXD team has now updated their documentation to warn not to add users to the `lxd` group unless you trust them with root level access to your host.
 
 To me, this says that the `lxd` group itself serves no purpose and should be done away with. If you trust users with root on your system, there is already a reliable mechanism for this - you give them `sudo` rights. With `sudo`, you ensure these rights are managed from a single location and that all privileged activity is properly logged.

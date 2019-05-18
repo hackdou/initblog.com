@@ -10,7 +10,7 @@ excerpt: "Linux systems running LXD are vulnerable to privilege escalation via m
 
 
 # Introduction
-Linux systems running LXD are vulnerable to privilege escalation via multiple attack paths, two of which are published in my ["lxd_root"](https://github.com/initstring/lxd_root){:target="_blank"} GitHub repository. This blog will go into the details of what I think is a very interesting path - abusing relayed UNIX socket credentials to speak directly to systemd's private interface. This method can be used with any other exploit primitives that can communicate over a socket with root credentials.
+Linux systems running LXD are vulnerable to privilege escalation via multiple attack paths, two of which are published in my ["lxd_root"](https://github.com/initstring/lxd_root){:target="_blank"} GitHub repository. This blog will go into the details of what I think is a very interesting path - abusing relayed UNIX socket credentials to speak directly to systemd's private interface.
 
 Ubuntu 19.04 Server edition comes with the LXD snap installed by default. The only requirement for this exploit in a fresh install of Ubuntu is access to a user account that is a member of the `lxd` group. Anyone following the official documentation to create their first container would have done this already.
 

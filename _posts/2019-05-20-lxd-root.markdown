@@ -346,10 +346,10 @@ lowpriv@server:~$ lxc config device add falcor host_sock \
 Device host_sock added to falcor
 ```
 
-Alright, now let let's run the python script again to see if we can now talk to systemd.
+Alright, now let let's run the python script again to see if we can now talk to systemd. This time we will run it through our tunnel of sockets.
 
 ```
-lowpriv@server:~$ ./systemd_auth.py /run/systemd/private
+lowpriv@server:~$ ./systemd_auth.py /tmp/host_sock
 OK a1cde28f7bdd46f283f348654d7fa07f
 AGREE_UNIX_FD
 ```

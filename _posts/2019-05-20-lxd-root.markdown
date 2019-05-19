@@ -251,7 +251,7 @@ DESCRIPTION
     and the signals which are received by a process.
 ```
 
-Let's take a look at the `strace` output of a simple `systemctl list-units` command. We'll do this from our own machine or another where we have root access, as we want to mimic legitimate root calls.
+Let's take a look at the `strace` output of a simple `systemctl restart ssh` command. We'll do this from our own machine or another where we have root access, as we want to mimic legitimate root calls.
 
 ```
 ubuntu@server:~$ sudo strace -ff -s 20000 systemctl restart ssh 2> strace-out

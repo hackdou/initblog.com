@@ -61,7 +61,7 @@ ubuntu@server:~$ sudo --user lowpriv --login
 
 Note that the step above where the user is added to the `lxd` group was taken from this direct quote in the guide linked above:
 
-> If the "lxd" group is missing on your system, create it, then restart the LXD daemon. You can then add trusted users to it. Anyone added to this group will have full control over LXD.
+> If the "lxd" group is missing on your system, create it, then restart the LXD daemon. You can then add trusted users to it. Anyone added to this group will have full control over LXD only.
 
 One would not be blamed for assuming that this meant you trust this user for full control over LXD. Prior to raising the issue on the Canonical bug tracker, nowhere did the documentation state that you were actually giving the user full control over the host operating system.
 

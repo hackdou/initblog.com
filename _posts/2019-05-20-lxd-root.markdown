@@ -18,7 +18,7 @@ Privilege escalation via LXD in general has been a known issue since 2016, with 
 
 I believe I am the first to describe exploitation using stolen socket credentials, which also works with unprivileged containers.
 
-Before I came across these issues, nothing in the official LXD documentation existed to warn users that the `lxd` group was dangerous. Anyone following the official guidelines to configure LXD would have added their account into this group before deploying their first container. I opened a bug with Canonical to express my concerns - you can read the full thread [here](https://bugs.launchpad.net/ubuntu/+source/lxd/+bug/1829071). The LXD team quickly made adjustments to the documentation, which now clearly states that this group should only be given to those trusted with root access.
+Before I came across these issues, nothing in the official LXD documentation existed to warn users that the `lxd` group was dangerous. Anyone following the official guidelines to configure LXD would have added their account into this group before deploying their first container. I opened a bug with Canonical to express my concerns - you can read the full thread [here](https://bugs.launchpad.net/ubuntu/+source/lxd/+bug/1829071){:target="_blank"}. The LXD team quickly made adjustments to the documentation, which now clearly states that this group should only be given to those trusted with root access.
 
 As always, interacting with the Canonical folks via their bug tracker was a really pleasant experience. I'd like to thank them for their time and for the thoughtful consideration they gave my ideas. I highly recommend other security researchers bring items directly to them in this manner.
 

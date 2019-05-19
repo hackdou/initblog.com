@@ -12,13 +12,15 @@ excerpt: "Linux systems running LXD are vulnerable to privilege escalation via m
 # Introduction
 Linux systems running LXD are vulnerable to privilege escalation via multiple attack paths, two of which are published in my ["lxd_root"](https://github.com/initstring/lxd_root){:target="_blank"} GitHub repository. This blog will go into the details of what I think is a very interesting path - abusing relayed UNIX socket credentials to speak directly to systemd's private interface.
 
-Ubuntu 19.04 Server edition comes with the LXD snap installed by default. The only requirement for this exploit in a fresh install of Ubuntu is access to a user account that is a member of the `lxd` group. Anyone following the official documentation to create their first container would have done this already.
+Ubuntu 19.04 Server edition comes with the LXD snap installed by default. The only requirement for this exploit in a fresh install of Ubuntu is access to a user account that is a member of the `lxd` group.
 
 Privilege escalation via LXD in general has been a known issue since 2016, with a simple method described in theory in a [GitHub issue](https://github.com/lxc/lxd/issues/2003){:target="_blank"} and also in a practical implementation in a [security blog](https://reboare.github.io/lxd/lxd-escape.html){:target="_blank"} by [@reboare](https://twitter.com/reboare){:target="_blank"}.
 
 I believe I am the first to describe exploitation using stolen socket credentials, which also works with unprivileged containers.
 
-**UPDATE**: The LXD documentation has now been updated to include an explicit warning about adding users to the `lxd` group. As always, [interacting](https://bugs.launchpad.net/ubuntu/+source/lxd/+bug/1829071){:target="_blank"} with the Canonical folks via their bug tracker was a really pleasant experience. I'd like to thank them for their time and for the thoughtful consideration they gave my ideas. I highly recommend other security researchers bring items directly to them in this manner.
+Before I came across these issues, nothing in the official LXD documentation existed to warn users that the `lxd` group was dangerous. Anyone following the official guidelines to configure LXD would have added their account into this group before deploying their first container. I opened a bug with Canonical to express my concerns - you can read the full thread [here](https://bugs.launchpad.net/ubuntu/+source/lxd/+bug/1829071). The LXD team quickly made adjustments to the documentation, which now clearly states that this group should only be given to those trusted with root access.
+
+As always, interacting with the Canonical folks via their bug tracker was a really pleasant experience. I'd like to thank them for their time and for the thoughtful consideration they gave my ideas. I highly recommend other security researchers bring items directly to them in this manner.
 
 # TL;DR
 LXD is a management API for dealing with LXC containers on Linux systems. It will perform tasks for any members of the local `lxd` group. It does not make an effort to match the permissions of the calling user to the function it is asked to perform.
@@ -57,13 +59,12 @@ ubuntu@server:~$ sudo usermod -a -G lxd lowpriv
 ubuntu@server:~$ sudo --user lowpriv --login
 ```
 
-Note that the step above where the user is added to the `lxd` group is taken from this direct quote in the guide linked above:
+Note that the step above where the user is added to the `lxd` group was taken from this direct quote in the guide linked above:
 
 > If the "lxd" group is missing on your system, create it, then restart the LXD daemon. You can then add trusted users to it. Anyone added to this group will have full control over LXD.
 
-One would not be blamed for assuming that this meant you trust this user for full control over LXD. Nowhere does the documentation state that you are giving the user full control over the host operating system.
+One would not be blamed for assuming that this meant you trust this user for full control over LXD. Prior to raising the issue on the Canonical bug tracker, nowhere did the documentation state that you were actually giving the user full control over the host operating system.
 
-**UPDATE**: The LXD documentation has now been updated to include a more explicit warning.
 
 ## Low-Privilege Setup & Enumeration
 From here, we put on our attacker's cap and assume that this is our initial foothold into the the system. The following is the output from within our new `lowpriv` shell.

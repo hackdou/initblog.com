@@ -24,7 +24,7 @@ As always, interacting with the Canonical folks via their bug tracker was a real
 # TL;DR
 LXD is a management API for dealing with LXC containers on Linux systems. It will perform tasks for any members of the local `lxd` group. It does not make an effort to match the permissions of the calling user to the function it is asked to perform.
 
-For example, a low privilge user can create a bridge between sockets on the host and its containers. When bridging from an existing socket on the host to a new socket in a container, it makes the connection with the credentials of the LXD service (root) as opposed to those of the calling user. Then, when a user speaks to the socket endpoint in the container, the messages goes through the proxy and arrives at the host socket with root level credentials.
+For example, a low privilge user can create a bridge between sockets on the host and its containers. When bridging from an existing socket on the host to a new socket in a container, it makes the connection with the credentials of the LXD service (root) as opposed to those of the calling user. Then, when a user speaks to the socket endpoint in the container, the message goes through the proxy and arrives at the host socket with root level credentials.
 
 Linux programs often trust the credentials received over a socket when deciding whether or not to act on the stream of data.
 

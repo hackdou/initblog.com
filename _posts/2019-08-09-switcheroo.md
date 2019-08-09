@@ -4,13 +4,13 @@ date: 2019-08-09
 published: true
 layout: post
 comments: false
-excerpt: "Unauthenticated attackers on a local network can force stock Windows systems to perform arbitrary HTTP GET requests, including to their own localhost interface. No user interaction is required. No IIS installation is required."
+excerpt: "Unauthenticated attackers on a local network can force stock Windows systems to perform arbitrary HTTP GET requests, including to the target's localhost interface. No user interaction is required. No IIS installation is required."
 ---
 
 # Introduction
 
 ## Overview
-Unauthenticated attackers on a local network can force stock Windows systems to perform arbitrary HTTP GET requests, including to their own localhost interface. No user interaction is required. No IIS installation is required. Network Discovery must be enabled to trigger the exploit (usually on by default for private networks). The response cannot be viewed by the attacker, making this a "Blind Server-Side Request Forgery" vulnerability.
+Unauthenticated attackers on a local network can force stock Windows systems to perform arbitrary HTTP GET requests, including to the target's localhost interface. No user interaction is required. No IIS installation is required. Network Discovery must be enabled to trigger the exploit (usually on by default for private networks). The response cannot be viewed by the attacker, making this a "Blind Server-Side Request Forgery" vulnerability.
 
 This provides an exploit primitive that can be used for attacking services like REST APIs. Applications deployed only to localhost, or those on protected network segments, are exposed to attackers due to this OS vulnerability.
 

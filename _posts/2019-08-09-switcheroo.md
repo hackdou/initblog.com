@@ -20,7 +20,7 @@ This is done by responding to SSDP multicast discovery requests, which Windows s
 
 While this write-up is specific to the vulnerable SSDP service in Windows, it is likely that many other applications using their own SSDP stack are vulnerable as well.
 
-By itself, this is not exactly an earth-shattering vulnerability. In fact, Microsoft has responded saying it is not a vulnerability at all (see full disclosure info at the end of this blog). I thought it was interesting enough to share, and hope that others may find some functionality in the primitive itself.
+By itself, this is not exactly an earth-shattering vulnerability. In fact, Microsoft has responded saying that they do not intend to fix it (see full disclosure info at the end of this blog). I thought it was interesting enough to share, and hope that others may find some functionality in the primitive itself.
 
 Exploit POC code is available in the GitLab repository [here](https://gitlab.com/initstring/switcheroo){:target="_blank"}.
 

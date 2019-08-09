@@ -97,7 +97,7 @@ From here, you will see the Windows machine connect to itself on localhost, whic
 ## Weaponization
 My free time is a bit limited right now due to a new gig and just life in general. I'm releasing this info and POC in the hopes that other hackers can build some cool exploit chains with it. I would love to hear feedback from folks who have success.
 
-The GET is performed as LOCAL SERVICE, if that's helpful to you Windows researchers out there. Thanks @elad_shamir for answering my questions on this.
+The GET is performed as LOCAL SERVICE, if that's helpful to you Windows researchers out there. Thanks to Elad Shamir for answering my questions on this.
 
 ## More Info
 This discovery came as a byproduct of my earlier research into SSDP vulnerabilities, which you can read more about on the evil-ssdp page [here](https://gitlab.com/initstring/evil-ssdp).

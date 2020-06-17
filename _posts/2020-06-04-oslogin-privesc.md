@@ -290,7 +290,9 @@ sudo id
 
 #### Video demonstration
 
-![Video Demo (click lower-right to expand)](/images/post-oslogin/lxd.mp4)
+<video width="640" height="480" controls>
+  <source type="video/mp4" src="/images/post-oslogin/lxd.mp4">
+</video>
 
 ### Privilege escalation via Docker
 
@@ -328,7 +330,9 @@ sudo id
 
 #### Video demonstration
 
-![Video Demo (click lower-right to expand)](/images/post-oslogin/docker.mp4)
+<video width="640" height="480" controls>
+  <source type="video/mp4" src="/images/post-oslogin/docker.mp4">
+</video>
 
 ### Privilege escalation via metadata server hijacking
 
@@ -499,8 +503,9 @@ Success!
 
 #### Video demonstration
 
-![Video Demo (click lower-right to expand)](/images/post-oslogin/metadata.mp4)
-
+<video width="640" height="480" controls>
+  <source type="video/mp4" src="/images/post-oslogin/metadata.mp4">
+</video>
 
 ## Appendix
 

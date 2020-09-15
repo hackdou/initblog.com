@@ -40,10 +40,10 @@ timezone:           Australia/Melbourne
 #bing-verify:
 #email:
 twitter:            init_string
-reddit:             initstring
+#reddit:             initstring
 #facebook:           username
 github-url:         initstring
-stackoverflow:      6679257/initstring
+#stackoverflow:      6679257/initstring
 #linkedin:          username
 #xing:              username
 #instagram:          username
